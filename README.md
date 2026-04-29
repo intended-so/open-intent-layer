@@ -1,4 +1,4 @@
-# @intended/open-intent-layer
+# @intended-inc/open-intent-layer
 
 **Open Intent Layer (OIL)** — the open Apache-2.0 taxonomy for classifying autonomous-agent actions across **29 domains and 173 categories** spanning digital enterprise operations and physical / embodied processes (manufacturing, surgical, aerial, autonomous vehicles, agriculture, energy, mining, construction, hazardous environments, logistics).
 
@@ -108,17 +108,17 @@ The **OIL-2900** family is the load-bearing safety-primitive vocabulary. Categor
 ## Installation
 
 ```bash
-npm install @intended/open-intent-layer
+npm install @intended-inc/open-intent-layer
 # or
-pnpm add @intended/open-intent-layer
+pnpm add @intended-inc/open-intent-layer
 # or
-yarn add @intended/open-intent-layer
+yarn add @intended-inc/open-intent-layer
 ```
 
 ## Usage
 
 ```typescript
-import { OIL_TAXONOMY, findCategory } from "@intended/open-intent-layer";
+import { OIL_TAXONOMY, findCategory } from "@intended-inc/open-intent-layer";
 
 const cat = findCategory("OIL-1502");
 // { code: "OIL-1502", name: "Pick / grasp", parentDomain: "OIL-1500", ... }
