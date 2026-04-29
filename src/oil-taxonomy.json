@@ -1,8 +1,8 @@
 {
-  "version": "1.0",
+  "version": "2.0",
   "name": "Open Intent Layer",
   "abbreviation": "OIL",
-  "description": "Open Intent Layer's canonical intent classification taxonomy for enterprise AI authority. Covers 14 operational domains with sub-categories for precise intent routing, risk assessment, and compliance mapping.",
+  "description": "Open Intent Layer's canonical intent classification taxonomy for AI authority across digital operations and physical processes. Covers 29 domains with sub-categories for precise intent routing, risk assessment, regulatory mapping, and safety-rated decision evidence. Domains OIL-100 through OIL-1400 cover digital enterprise operations; OIL-1500 through OIL-2900 cover embodied / physical AI processes.",
   "domains": [
     {
       "code": "OIL-100",
@@ -180,6 +180,204 @@
         { "code": "OIL-1403", "name": "Decommissioning", "description": "Asset retirement, secure disposal, data wiping, and environmental compliance." },
         { "code": "OIL-1404", "name": "Facility Management", "description": "Workspace management, access control systems, environmental monitoring, and space planning." },
         { "code": "OIL-1405", "name": "Asset Tracking", "description": "Asset inventory, location tracking, depreciation management, and audit reconciliation." }
+      ]
+    },
+    {
+      "code": "OIL-1500",
+      "name": "Manipulation",
+      "description": "Grasping, pick-and-place, assembly, tool use, and dexterous physical manipulation by industrial arms, cobots, and dexterous end-effectors.",
+      "categories": [
+        { "code": "OIL-1501", "name": "Grasp Planning", "description": "Object detection, grasp pose computation, force-closure validation, and re-grasp recovery." },
+        { "code": "OIL-1502", "name": "Pick & Place", "description": "Workpiece transfer, fixture loading and unloading, bin picking, and kitting." },
+        { "code": "OIL-1503", "name": "Assembly", "description": "Part insertion, fastening, torque control, alignment, and snap-fit operations." },
+        { "code": "OIL-1504", "name": "Tool Use", "description": "End-effector exchange, tool engagement, calibration, and tool-life monitoring." },
+        { "code": "OIL-1505", "name": "Dexterous Manipulation", "description": "Multi-finger control, in-hand manipulation, contact-rich tasks, and deformable-object handling." },
+        { "code": "OIL-1506", "name": "Force-Sensitive Operations", "description": "Compliant motion, polishing, deburring, and surface-conformal contact." }
+      ]
+    },
+    {
+      "code": "OIL-1600",
+      "name": "Locomotion & Mobility",
+      "description": "Path planning, obstacle avoidance, and motion across wheeled, legged, aerial, and marine platforms.",
+      "categories": [
+        { "code": "OIL-1601", "name": "Path Planning", "description": "Global route generation, waypoint sequencing, and route reservations across shared corridors." },
+        { "code": "OIL-1602", "name": "Obstacle Avoidance", "description": "Dynamic obstacle detection, reactive replanning, safety margin enforcement, and emergency stop fall-through." },
+        { "code": "OIL-1603", "name": "Wheeled Navigation", "description": "AGV and AMR motion control, traction management, fleet coordination, and dock-and-charge cycles." },
+        { "code": "OIL-1604", "name": "Legged Locomotion", "description": "Gait selection, terrain adaptation, foothold planning, and stability recovery." },
+        { "code": "OIL-1605", "name": "Aerial Flight Path", "description": "Altitude management, airspace integration, geo-fenced no-fly enforcement, and corridor compliance." },
+        { "code": "OIL-1606", "name": "Marine Navigation", "description": "Surface and submersible navigation, current and tide compensation, depth control, and station-keeping." }
+      ]
+    },
+    {
+      "code": "OIL-1700",
+      "name": "Sensing & Perception",
+      "description": "Multi-modal perception, sensor fusion, and calibration across vision, depth, audio, tactile, environmental, and inertial channels.",
+      "categories": [
+        { "code": "OIL-1701", "name": "Computer Vision", "description": "Object detection, scene segmentation, OCR, barcode and fiducial reading, and visual servoing." },
+        { "code": "OIL-1702", "name": "LiDAR & Depth", "description": "Point-cloud processing, depth fusion, 3D reconstruction, and free-space estimation." },
+        { "code": "OIL-1703", "name": "Audio Sensing", "description": "Voice command recognition, anomaly sound detection, ultrasonic ranging, and acoustic event classification." },
+        { "code": "OIL-1704", "name": "Tactile & Force", "description": "Contact sensing, slip detection, force-torque measurement, and skin-array readout." },
+        { "code": "OIL-1705", "name": "Environmental Sensing", "description": "Temperature, humidity, gas concentration, radiation, and particulate measurement." },
+        { "code": "OIL-1706", "name": "Inertial & Localization", "description": "IMU fusion, GPS and RTK positioning, indoor localization, and SLAM map maintenance." },
+        { "code": "OIL-1707", "name": "Sensor Calibration", "description": "Calibration routines, drift detection, cross-sensor validation, and online recalibration triggers." }
+      ]
+    },
+    {
+      "code": "OIL-1800",
+      "name": "Actuation & Control",
+      "description": "Low-level command issuance to motors, fluid power, thermal systems, and electrical contactors, plus closed-loop tuning.",
+      "categories": [
+        { "code": "OIL-1801", "name": "Motor Control", "description": "Position, velocity, and torque commands; servo loop tuning; brake and homing actuation." },
+        { "code": "OIL-1802", "name": "Pneumatic & Hydraulic", "description": "Valve actuation, pressure regulation, cylinder control, and fluid-power interlocks." },
+        { "code": "OIL-1803", "name": "Thermal & HVAC", "description": "Heating and cooling commands, environmental setpoint control, and thermal interlock enforcement." },
+        { "code": "OIL-1804", "name": "Power Distribution", "description": "Relay and contactor switching, breaker control, load shedding, and bus-tie operations." },
+        { "code": "OIL-1805", "name": "Closed-Loop Tuning", "description": "PID adaptation, gain scheduling, controller commissioning, and stability margin verification." }
+      ]
+    },
+    {
+      "code": "OIL-1900",
+      "name": "Manufacturing & Production",
+      "description": "Discrete and process manufacturing operations including assembly lines, machining, additive, batch, inspection, material handling, and scheduling.",
+      "categories": [
+        { "code": "OIL-1901", "name": "Assembly Line Control", "description": "Conveyor sequencing, station coordination, line balancing, and starve-or-block response." },
+        { "code": "OIL-1902", "name": "CNC & Machining", "description": "Toolpath execution, feed and speed control, tool-life tracking, and post-process verification." },
+        { "code": "OIL-1903", "name": "Additive Manufacturing", "description": "3D print job management, material loading, layer monitoring, and part validation." },
+        { "code": "OIL-1904", "name": "Batch Processing", "description": "Recipe execution, fill and dose levels, mixing, curing cycles, and changeover sanitation." },
+        { "code": "OIL-1905", "name": "Quality Inspection", "description": "Vision-based QC, dimensional inspection, defect classification, and reject routing." },
+        { "code": "OIL-1906", "name": "Material Handling", "description": "Kanban replenishment, work-in-progress transfer, scrap routing, and consumables resupply." },
+        { "code": "OIL-1907", "name": "Production Scheduling", "description": "MES dispatch, work-order sequencing, line changeover, and OEE-driven re-planning." }
+      ]
+    },
+    {
+      "code": "OIL-2000",
+      "name": "Autonomous Vehicles",
+      "description": "On-road and off-road autonomous driving decisions, sensor fusion, mission planning, V2X, driver handoff, and fleet operations.",
+      "categories": [
+        { "code": "OIL-2001", "name": "Driving Decisions", "description": "Lane changes, speed adjustment, gap acceptance, intersection handling, and right-of-way arbitration." },
+        { "code": "OIL-2002", "name": "Sensor Fusion", "description": "Multi-sensor perception merging, redundancy management, and graceful degradation under sensor faults." },
+        { "code": "OIL-2003", "name": "Mission Planning", "description": "Route assignment, charging-stop insertion, fleet dispatch, and detour negotiation." },
+        { "code": "OIL-2004", "name": "V2X Communication", "description": "Vehicle-to-vehicle and vehicle-to-infrastructure signaling, traffic-light coordination, and hazard broadcasts." },
+        { "code": "OIL-2005", "name": "Driver Handoff", "description": "Autonomy-mode transitions, driver attention monitoring, takeover requests, and minimum-risk maneuvers." },
+        { "code": "OIL-2006", "name": "Vehicle Health", "description": "On-board diagnostics, predictive maintenance, fault response, and limp-home behavior." },
+        { "code": "OIL-2007", "name": "Fleet Operations", "description": "Depot operations, charging and refueling, cleaning and inspection, and regulatory roadside compliance." }
+      ]
+    },
+    {
+      "code": "OIL-2100",
+      "name": "Aerial Systems",
+      "description": "Uncrewed aerial vehicle operations including flight management, airspace compliance, payload control, and multi-drone coordination.",
+      "categories": [
+        { "code": "OIL-2101", "name": "Flight Operations", "description": "Takeoff, landing, cruise, hover, and return-to-home execution with battery and weight margins." },
+        { "code": "OIL-2102", "name": "Airspace Compliance", "description": "UTM coordination, NOTAM acknowledgment, and restricted-zone enforcement (TFRs, prisons, airports)." },
+        { "code": "OIL-2103", "name": "Payload Operations", "description": "Sensor pointing, package release, agricultural spray control, and mission-payload arming." },
+        { "code": "OIL-2104", "name": "Tether & Power", "description": "Tethered flight management, battery state-of-charge, and battery hot-swap operations." },
+        { "code": "OIL-2105", "name": "Beyond-Visual-Line-of-Sight", "description": "BVLOS authorization, link-health monitoring, and lost-link procedure execution." },
+        { "code": "OIL-2106", "name": "Multi-Drone Coordination", "description": "Swarm control, deconfliction, formation flight, and inter-vehicle priority resolution." }
+      ]
+    },
+    {
+      "code": "OIL-2200",
+      "name": "Surgical & Medical Robotics",
+      "description": "Clinical-environment robotics including surgical procedures, patient handling, medication, imaging, sample handling, sterilization, and patient telemetry.",
+      "categories": [
+        { "code": "OIL-2201", "name": "Surgical Procedure", "description": "Incision, suturing, retraction, instrument exchange, and energy-device activation under surgeon authority." },
+        { "code": "OIL-2202", "name": "Patient Positioning", "description": "Bed and table movement, restraint application, repositioning, and pressure-injury prevention." },
+        { "code": "OIL-2203", "name": "Medication Dispensing", "description": "Drug selection, dose calculation, route confirmation, and administration verification." },
+        { "code": "OIL-2204", "name": "Diagnostic Imaging", "description": "Scanner positioning, contrast and dose control, image acquisition, and ALARA enforcement." },
+        { "code": "OIL-2205", "name": "Sample Handling", "description": "Biospecimen routing, lab automation, chain-of-custody preservation, and pre-analytical timing." },
+        { "code": "OIL-2206", "name": "Sterilization & Cleaning", "description": "Instrument reprocessing, autoclave control, surface disinfection, and biological indicator validation." },
+        { "code": "OIL-2207", "name": "Patient Telemetry", "description": "Vital sign capture, alarm handling, threshold tuning, and escalation to clinician." }
+      ]
+    },
+    {
+      "code": "OIL-2300",
+      "name": "Agricultural Operations",
+      "description": "Field, livestock, and controlled-environment agricultural operations performed by tractors, sprayers, harvesters, and barn robotics.",
+      "categories": [
+        { "code": "OIL-2301", "name": "Field Operations", "description": "Tilling, planting, harvesting, row-following, and GPS-guided implement control." },
+        { "code": "OIL-2302", "name": "Irrigation", "description": "Water delivery, schedule control, soil-moisture-driven response, and runoff and tail-water management." },
+        { "code": "OIL-2303", "name": "Pest & Disease Management", "description": "Scouting, targeted spray application, quarantine enforcement, and integrated pest management decisions." },
+        { "code": "OIL-2304", "name": "Livestock Management", "description": "Feeding, milking, health monitoring, welfare checks, and isolation of sick animals." },
+        { "code": "OIL-2305", "name": "Greenhouse & Controlled Environment", "description": "Lighting, HVAC, CO₂ enrichment, fertigation, and microclimate control." },
+        { "code": "OIL-2306", "name": "Yield & Inventory", "description": "Harvest tally, grading, post-harvest storage and cooling, and traceability ledger updates." }
+      ]
+    },
+    {
+      "code": "OIL-2400",
+      "name": "Construction & Excavation",
+      "description": "Site, structural, demolition, and lifting operations executed by autonomous heavy equipment and modular construction systems.",
+      "categories": [
+        { "code": "OIL-2401", "name": "Site Preparation", "description": "Clearing, grading, surveying, layout staking, and erosion-control measures." },
+        { "code": "OIL-2402", "name": "Earthworks", "description": "Excavation, trenching, hauling, and compaction with utility-strike avoidance." },
+        { "code": "OIL-2403", "name": "Structural Operations", "description": "Concrete placement, rebar handling, modular assembly, and post-tensioning." },
+        { "code": "OIL-2404", "name": "Demolition", "description": "Controlled tear-down, hazard isolation, debris routing, and asbestos and lead handling." },
+        { "code": "OIL-2405", "name": "Lifting & Cranes", "description": "Load planning, hoist operation, tag-line control, and exclusion-zone enforcement." },
+        { "code": "OIL-2406", "name": "Heavy-Equipment Coordination", "description": "Multi-machine choreography, exclusion zones, anti-collision, and operator-out-of-cab modes." }
+      ]
+    },
+    {
+      "code": "OIL-2500",
+      "name": "Hazardous Environments",
+      "description": "Operations in nuclear, subsea, space, contaminated, explosive-ordnance, and confined-space environments where human entry is constrained.",
+      "categories": [
+        { "code": "OIL-2501", "name": "Nuclear Operations", "description": "Fuel handling, waste sorting, contaminated-area work, and dose-budget enforcement." },
+        { "code": "OIL-2502", "name": "Subsea & ROV", "description": "Pipeline inspection, salvage, deep-water intervention, and umbilical and tether management." },
+        { "code": "OIL-2503", "name": "Space Operations", "description": "Orbital station-keeping, EVA assistance, docking, and proximity operations." },
+        { "code": "OIL-2504", "name": "Contaminated Site Remediation", "description": "Chemical neutralization, contaminant transport, scaffolding, and decontamination cycles." },
+        { "code": "OIL-2505", "name": "EOD & Bomb Disposal", "description": "Explosive ordnance handling, render-safe procedures, and disrupter deployment." },
+        { "code": "OIL-2506", "name": "Confined-Space Entry", "description": "Gas testing, atmospheric monitoring, retrieval line management, and rescue-team standby." }
+      ]
+    },
+    {
+      "code": "OIL-2600",
+      "name": "Energy & Utilities",
+      "description": "Generation, transmission, distribution, storage, and demand-side operations across electric, gas, water, and district-energy utilities.",
+      "categories": [
+        { "code": "OIL-2601", "name": "Generation Control", "description": "Turbine, reactor, solar, and wind dispatch with ramp-rate and frequency-response control." },
+        { "code": "OIL-2602", "name": "Grid Operations", "description": "Load balancing, frequency regulation, reactive-power management, and contingency response." },
+        { "code": "OIL-2603", "name": "Distribution & Switching", "description": "Substation switching, recloser operation, fault isolation, and feeder restoration." },
+        { "code": "OIL-2604", "name": "Storage & Battery", "description": "Battery energy storage dispatch, state-of-charge management, thermal management, and degradation tracking." },
+        { "code": "OIL-2605", "name": "Demand Response", "description": "Load shedding, distributed-energy-resource curtailment, and consumer demand-response programs." },
+        { "code": "OIL-2606", "name": "Meter & Field Operations", "description": "Smart-meter reads, meter swap, field-crew dispatch, and outage restoration coordination." }
+      ]
+    },
+    {
+      "code": "OIL-2700",
+      "name": "Mining & Resource Extraction",
+      "description": "Surface and underground mining, drilling, blasting, beneficiation, wellfield, and geotechnical-monitoring operations.",
+      "categories": [
+        { "code": "OIL-2701", "name": "Drilling & Blasting", "description": "Drill plan execution, blast initiation, post-blast atmospheric clearance, and fragmentation analysis." },
+        { "code": "OIL-2702", "name": "Loading & Hauling", "description": "Truck loading, route to crusher or stockpile, and dump-site management." },
+        { "code": "OIL-2703", "name": "Beneficiation", "description": "Crushing, grinding, separation, flotation, and tailings handling." },
+        { "code": "OIL-2704", "name": "Wellfield Operations", "description": "Oil and gas extraction, pressure management, choke control, and produced-water handling." },
+        { "code": "OIL-2705", "name": "Geotechnical Monitoring", "description": "Slope stability, ground movement, seismic event correlation, and exclusion-zone declaration." }
+      ]
+    },
+    {
+      "code": "OIL-2800",
+      "name": "Logistics & Material Handling",
+      "description": "Warehouse, cross-dock, yard, last-mile, port, and cold-chain physical movement of goods.",
+      "categories": [
+        { "code": "OIL-2801", "name": "Warehouse Robotics", "description": "Pick, pack, and stow operations; tote routing; and AS/RS shuttle and crane operations." },
+        { "code": "OIL-2802", "name": "Cross-Dock & Sortation", "description": "Package routing, sort-induction, rejection handling, and chute and divert operations." },
+        { "code": "OIL-2803", "name": "Yard & Trailer Operations", "description": "Trailer spotting, dock door assignment, gate operations, and yard-truck dispatch." },
+        { "code": "OIL-2804", "name": "Last-Mile Delivery", "description": "Locker access, doorstep delivery, signature capture, and delivery-failure recovery." },
+        { "code": "OIL-2805", "name": "Port & Marine Cargo", "description": "Container handling, ship-to-shore crane operations, lashing, and reefer-monitoring." },
+        { "code": "OIL-2806", "name": "Cold Chain", "description": "Temperature-controlled storage, breach detection, transfer-window enforcement, and excursion logging." }
+      ]
+    },
+    {
+      "code": "OIL-2900",
+      "name": "Embodied AI Safety",
+      "description": "Safety-critical primitives that gate any physical-AI action: emergency stop, geofencing, presence detection, safety-rated motion, lockout-tagout, collision avoidance, and certification conformance.",
+      "categories": [
+        { "code": "OIL-2901", "name": "Emergency Stop", "description": "E-stop activation, system safe-state entry, fault latching, and supervised reset." },
+        { "code": "OIL-2902", "name": "Geofencing", "description": "Virtual fence enforcement, breach response, and work-cell exclusion-zone definition." },
+        { "code": "OIL-2903", "name": "Human-Presence Detection", "description": "Proximity sensing, light curtains, area scanners, and presence-triggered slowdown." },
+        { "code": "OIL-2904", "name": "Safety-Rated Motion", "description": "Speed and separation monitoring, power and force limiting, and safe-rated stop and torque-off." },
+        { "code": "OIL-2905", "name": "Lockout / Tagout", "description": "Energy isolation verification, work-permit gating, and zero-energy state confirmation." },
+        { "code": "OIL-2906", "name": "Collision Avoidance", "description": "Soft-body contact prediction, force compliance, dynamic stop, and post-event review." },
+        { "code": "OIL-2907", "name": "Compliance & Certification", "description": "IEC 61508, ISO 13849, ISO 26262, ISO 10218, and ANSI/RIA R15.06 conformance evidence." }
       ]
     }
   ]

@@ -1,86 +1,185 @@
 # @intended/open-intent-layer
 
-**Open Intent Layer** — the open taxonomy for classifying AI agent actions across 14 enterprise domains.
+**Open Intent Layer (OIL)** — the open Apache-2.0 taxonomy for classifying autonomous-agent actions across **29 domains and 173 categories** spanning digital enterprise operations and physical / embodied processes (manufacturing, surgical, aerial, autonomous vehicles, agriculture, energy, mining, construction, hazardous environments, logistics).
 
-The Open Intent Layer provides a shared language for describing what AI agents intend to do. Every action an AI agent takes — deploying code, processing invoices, escalating tickets — maps to a stable intent family and category. This enables consistent verification, authorization, auditing, and policy evaluation across any AI agent platform.
+```
+                     ┌─────────────────────────────────────────┐
+                     │             AGENT INTENT                │
+                     │                                         │
+                     │   "deploy checkout to prod"             │
+                     │   POST /api/v2/deployments              │
+                     │   gh.actions.workflow_run.completed     │
+                     │   k8s.deployment.apps/v1.update         │
+                     │   terraform apply -auto-approve         │
+                     │   ros2:action:moveit_msgs/Pick          │
+                     │   px4:command/MAV_CMD_NAV_TAKEOFF       │
+                     │   opcua:method/siemens.tia/MoveAxis     │
+                     │   da-vinci:procedure/Suture             │
+                     │   ...                                   │
+                     └────────────────┬────────────────────────┘
+                                      │
+                                      │   every shape, every vendor,
+                                      │   every runtime — into one
+                                      ▼   stable open vocabulary
+                          ┌──────────────────────┐
+                          │  Open Intent Layer   │
+                          │       (OIL v2)       │
+                          │ 29 domains · 173 cats│
+                          └──────────┬───────────┘
+                                     │
+                ┌────────────────────┼─────────────────────┐
+                ▼                    ▼                     ▼
+        ┌───────────────┐    ┌───────────────┐     ┌───────────────┐
+        │  DIGITAL      │    │  PHYSICAL     │     │  SAFETY       │
+        │  OIL-1XX..1400│    │  OIL-1500..   │     │  OIL-2900     │
+        │               │    │       2800    │     │               │
+        │ deploy.prod   │    │ pick.workpiece│     │ emergency-stop│
+        │ payments.send │    │ navigate.amr  │     │ geofence      │
+        │ access.grant  │    │ takeoff.drone │     │ exclusion-zone│
+        │ ...           │    │ surgical.cut  │     │ light-curtain │
+        └───────────────┘    └───────────────┘     └───────────────┘
+                │                    │                     │
+                └────────────────────┼─────────────────────┘
+                                     ▼
+              ┌────────────────────────────────────────┐
+              │    Authority + Policy + Audit          │
+              │   (any vendor, any runtime, same code) │
+              │                                        │
+              │    ALLOW  · DENY  · ESCALATE           │
+              └────────────────────────────────────────┘
+```
 
-## The 14 Open Intent Layer Domains
+OIL provides a shared language for describing what AI agents (LLM-driven, structured-payload, robotic, drone, autonomous-vehicle) intend to do. Every action — deploying code, processing invoices, picking a workpiece, navigating to a waypoint, executing a surgical primitive — maps to a stable category in this taxonomy. That enables consistent verification, authorization, audit, and policy evaluation across any agent platform, vendor, or runtime.
 
-| Code | Domain | Categories | Description |
-|------|--------|-----------|-------------|
-| OIL-100 | Software Development | 7 | Build, test, deploy, release, and govern code |
-| OIL-200 | Security Operations | 7 | Detect, respond to, and remediate security threats |
-| OIL-300 | Infrastructure | 7 | Provision, scale, and maintain compute and network systems |
-| OIL-400 | Cloud Operations | 6 | SaaS management, platform ops, multi-cloud governance |
-| OIL-500 | Financial Operations | 8 | Budgets, payments, procurement, treasury, reporting |
-| OIL-600 | Supply Chain | 5 | Sourcing, logistics, vendor management, inventory |
-| OIL-700 | People Operations | 6 | Hiring, onboarding, workforce management |
-| OIL-800 | Revenue Operations | 5 | Pipeline management, deal execution, renewals |
-| OIL-900 | Customer Experience | 5 | Support, success, satisfaction measurement |
-| OIL-1000 | Enterprise Operations | 6 | Strategy, planning, governance, cross-functional ops |
-| OIL-1100 | Service Delivery | 4 | Fulfillment, SLA adherence, service operations |
-| OIL-1200 | Risk Management | 5 | Assessment, mitigation, compliance, business continuity |
-| OIL-1300 | Product Operations | 4 | Roadmap, discovery, launch coordination, lifecycle |
-| OIL-1400 | Asset Management | 5 | Inventory tracking, maintenance, lifecycle, disposal |
+## Why this exists
 
-**Total: 80 categories across 14 domains.**
+Without a shared intent vocabulary:
+
+- Every system names actions differently (`POST /api/v2/deployments`, `gh.actions.workflow_run.completed`, `ros2:action:moveit_msgs/Pick`)
+- Authorization policies don't travel across platforms
+- Audit evidence is fragmented and per-vendor
+- Safety reasoning ("does this action touch a safety-rated function?") is platform-specific
+
+OIL gives you one stable code (`OIL-1502` = MoveIt manipulation primitive, `OIL-2902` = geofence-enforcement safety primitive, `OIL-100` family = software development) that every agent runtime, gateway, and audit chain can reference.
+
+## v2.0 — 29 domains, 173 categories
+
+### Digital operations (14 domains, 80 categories)
+
+| Code | Domain | Categories |
+|------|--------|-----------|
+| OIL-100 | Software Development | 7 |
+| OIL-200 | Security Operations | 7 |
+| OIL-300 | Infrastructure | 7 |
+| OIL-400 | Cloud Operations | 6 |
+| OIL-500 | Financial Operations | 8 |
+| OIL-600 | Supply Chain | 5 |
+| OIL-700 | People Operations | 6 |
+| OIL-800 | Revenue Operations | 5 |
+| OIL-900 | Customer Experience | 5 |
+| OIL-1000 | Enterprise Operations | 6 |
+| OIL-1100 | Service Delivery | 4 |
+| OIL-1200 | Risk Management | 5 |
+| OIL-1300 | Product Operations | 4 |
+| OIL-1400 | Asset Management | 5 |
+
+### Physical / embodied operations (15 domains, 93 categories — **new in v2.0**)
+
+| Code | Domain | Categories |
+|------|--------|-----------|
+| OIL-1500 | Manipulation | 6 |
+| OIL-1600 | Locomotion & Mobility | 6 |
+| OIL-1700 | Sensing & Perception | 7 |
+| OIL-1800 | Actuation & Control | 5 |
+| OIL-1900 | Manufacturing & Production | 7 |
+| OIL-2000 | Autonomous Vehicles | 7 |
+| OIL-2100 | Aerial Systems | 6 |
+| OIL-2200 | Surgical & Medical Robotics | 7 |
+| OIL-2300 | Agricultural Operations | 6 |
+| OIL-2400 | Construction & Excavation | 6 |
+| OIL-2500 | Hazardous Environments | 6 |
+| OIL-2600 | Energy & Utilities | 6 |
+| OIL-2700 | Mining & Resource Extraction | 5 |
+| OIL-2800 | Logistics & Material Handling | 6 |
+| **OIL-2900** | **Embodied AI Safety** | **7** |
+
+The **OIL-2900** family is the load-bearing safety-primitive vocabulary. Categories include emergency-stop, geofence enforcement, exclusion-zone, light-curtain, attestation requirements, and operator-in-the-loop escalation. Other categories cite from this family via the `safetyCitations` field in classification results, so policies can reason about safety-relevant actions independently of vertical-specific terminology.
 
 ## Installation
 
 ```bash
 npm install @intended/open-intent-layer
+# or
+pnpm add @intended/open-intent-layer
+# or
+yarn add @intended/open-intent-layer
 ```
 
 ## Usage
 
 ```typescript
-import { getDomain, getCategory, getDomainForCategory, allCategoryCodes } from "@intended/open-intent-layer";
+import { OIL_TAXONOMY, findCategory } from "@intended/open-intent-layer";
 
-// Look up a domain
-const secops = getDomain("OIL-200");
-console.log(secops?.name); // "Security Operations"
+const cat = findCategory("OIL-1502");
+// { code: "OIL-1502", name: "Pick / grasp", parentDomain: "OIL-1500", ... }
 
-// Look up a category
-const threatDetection = getCategory("OIL-201");
-console.log(threatDetection?.name); // "Threat Detection"
-
-// Find which domain a category belongs to
-const domain = getDomainForCategory("OIL-503");
-console.log(domain?.name); // "Financial Operations"
-
-// List all category codes
-const codes = allCategoryCodes();
-console.log(codes.length); // 80
+console.log(`OIL ${OIL_TAXONOMY.version}`);
+console.log(`${OIL_TAXONOMY.domains.length} domains`);
 ```
 
-### Access the full taxonomy
+## How agents use it (the typical loop)
 
-```typescript
-import oil from "@intended/open-intent-layer";
-
-for (const domain of oil.domains) {
-  console.log(`${domain.code} ${domain.name} (${domain.categories.length} categories)`);
-  for (const cat of domain.categories) {
-    console.log(`  ${cat.code} ${cat.name}`);
-  }
-}
+```
+   ┌─ Agent emits ──────────────┐    ┌─ Classifier returns ──────┐    ┌─ Runtime uses ────────┐
+   │                            │    │                           │    │                       │
+   │  StructuredGoal {          │    │  ClassifyResult {         │    │  if (failClosed)      │
+   │    schema: "ros2:..."      │ ─▶ │    oilCode:    "OIL-1502" │ ─▶ │    deny()             │
+   │    verb:   "pick"          │    │    confidence: 0.97       │    │  if (safetyBit)       │
+   │    actor:  { kind, id }    │    │    safetyBit:  true       │    │    require attest()  │
+   │  }                         │    │    safetyCitations: [     │    │  authorize(oilCode)   │
+   │                            │    │      "OIL-2902",          │    │  emit safe-default    │
+   │                            │    │      "OIL-2904"]          │    │    on deny / expiry   │
+   │                            │    │  }                        │    │                       │
+   └────────────────────────────┘    └───────────────────────────┘    └───────────────────────┘
 ```
 
-## Why the Open Intent Layer?
+Same loop, whether the agent is an LLM emitting JSON, a ROS2 node emitting an action goal, an OPC-UA client invoking a method, or a drone autopilot issuing a MAVLink command.
 
-AI agents are taking actions across every enterprise domain — from deploying code to processing payments to managing infrastructure. Without a shared taxonomy, every organization invents its own classification, making cross-system policy enforcement and auditing impossible.
+## Companion runtime
 
-The Open Intent Layer provides:
+OIL is the **standard**. Production-grade enforcement — classification, policy DSL, audit chain, signed Authority Tokens, edge verifier — is the **Intended Authority Runtime**, a commercial product built on top of this taxonomy. Same shape as Linux + Red Hat, OAuth + Okta, Postgres + RDS.
 
-- **Universal classification** — A common language for AI agent actions across all enterprise domains
-- **Verification anchoring** — Runtime decisions can reference stable family codes instead of brittle action strings
-- **Audit consistency** — Every decision log entry maps to a stable taxonomy family
-- **Cross-platform interoperability** — Different AI agent frameworks can share the same intent language
+- Authority Runtime: https://intended.so/platform
+- Physical-AI integration guide: https://intended.so/physical-ai
+- Reference cobot example: https://github.com/intended-so/intended/tree/main/examples/physical-ai/pick-and-place
+- Rust edge verifier: https://github.com/intended-so/intended/tree/main/crates/intended-verifier
 
-## Reference Implementation
+You can adopt OIL without buying the runtime — it's Apache-2.0 and stable across vendors.
 
-The Open Intent Layer is used by the Intended runtime reference implementation for intent interpretation, authority routing, and audit evidence anchoring.
+## Standards-body work
+
+OIL is being prepared for submission to:
+
+- IEC TC 65 (industrial process control)
+- ISO TC 299 (robotics)
+- ISO/IEC JTC 1/SC 42 (artificial intelligence)
+
+Track the work, contribute taxonomy proposals, or push back on category boundaries via GitHub Issues on this repo.
+
+## Versioning
+
+- **v2.0** (current) — 29 domains, 173 categories. Adds the 15-domain physical / embodied process expansion (Manipulation, Locomotion, Surgical, Aerial, Autonomous Vehicles, Agriculture, Construction, Hazardous Environments, Energy, Mining, Logistics, Embodied AI Safety, etc.).
+- **v1.0** — 14 domains, 80 categories. Digital operations only. Frozen; consumers should migrate to v2.
+
+## Contributing
+
+Issues + PRs welcome. For taxonomy changes (new domains, new categories, renaming):
+
+1. Open an Issue with the proposed change + rationale
+2. Show at least one real-world agent integration that needs the new category
+3. Propose the OIL code (next available in the appropriate domain range)
+4. Send a PR with the taxonomy edit + a CHANGELOG entry
 
 ## License
 
-Apache-2.0
+Apache-2.0. Use freely in commercial and open-source projects. Don't claim you wrote it.
