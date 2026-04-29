@@ -118,13 +118,16 @@ yarn add @intended-inc/open-intent-layer
 ## Usage
 
 ```typescript
-import { OIL_TAXONOMY, findCategory } from "@intended-inc/open-intent-layer";
+import { oil, domains, getCategory, getDomain, getDomainForCategory } from "@intended-inc/open-intent-layer";
 
-const cat = findCategory("OIL-1502");
-// { code: "OIL-1502", name: "Pick / grasp", parentDomain: "OIL-1500", ... }
+const cat = getCategory("OIL-1502");
+// { code: "OIL-1502", name: "Pick & Place", description: "Workpiece transfer, fixture loading and unloading, bin picking, and kitting." }
 
-console.log(`OIL ${OIL_TAXONOMY.version}`);
-console.log(`${OIL_TAXONOMY.domains.length} domains`);
+const parent = getDomainForCategory("OIL-1502");
+// { code: "OIL-1500", name: "Manipulation", ... }
+
+console.log(`OIL ${oil.version}`);            // "OIL 2.0"
+console.log(`${domains.length} domains`);      // "29 domains"
 ```
 
 ## How agents use it (the typical loop)
