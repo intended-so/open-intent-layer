@@ -1,6 +1,6 @@
 {
   "name": "@intended-inc/open-intent-layer",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Open Intent Layer — Open taxonomy for classifying AI agent actions across 29 domains spanning digital enterprise operations and physical / embodied processes.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,8 +11,16 @@
     },
     "./taxonomy.json": "./src/oil-taxonomy.json"
   },
-  "files": ["dist", "src/oil-taxonomy.json"],
-  "scripts": { "build": "tsc" },
+  "files": [
+    "dist",
+    "src/oil-taxonomy.json"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
   "license": "Apache-2.0",
-  "repository": { "type": "git", "url": "https://github.com/intended-so/open-intent-layer.git" }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/intended-so/open-intent-layer.git"
+  }
 }

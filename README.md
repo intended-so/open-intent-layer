@@ -154,8 +154,6 @@ OIL is the **standard**. Production-grade enforcement — classification, policy
 
 - Authority Runtime: https://intended.so/platform
 - Physical-AI integration guide: https://intended.so/physical-ai
-- Reference cobot example: https://github.com/intended-so/intended/tree/main/examples/physical-ai/pick-and-place
-- Rust edge verifier: https://github.com/intended-so/intended/tree/main/crates/intended-verifier
 
 You can adopt OIL without buying the runtime — it's Apache-2.0 and stable across vendors.
 
@@ -185,4 +183,4 @@ Issues + PRs welcome. For taxonomy changes (new domains, new categories, renamin
 
 ## License
 
-Apache-2.0. Use freely in commercial and open-source projects. Don't claim you wrote it.
+Apache License 2.0. See [`LICENSE`](./LICENSE) for the full text.
